@@ -36,4 +36,4 @@ RUN mkdir -p $CONDA_DIR && \
     $CONDA_DIR/bin/conda install --yes conda==${CONDA_VER}
 
 COPY ./entrypoint.sh ./
-ENTRYPOINT [ "entrypoint.sh"]
+ENTRYPOINT [ "./entrypoint.sh"]
