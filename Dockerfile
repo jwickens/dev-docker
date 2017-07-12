@@ -1,6 +1,5 @@
 FROM mhart/alpine-node:8.1.2
 EXPOSE 8080
-COPY ./dev.sh ./
 
 # install conda's deps
 RUN apk --update  --repository http://dl-4.alpinelinux.org/alpine/edge/community add \
@@ -36,4 +35,5 @@ RUN mkdir -p $CONDA_DIR && \
     rm mconda.sh && \
     $CONDA_DIR/bin/conda install --yes conda==${CONDA_VER}
 
-CMD ["./dev.sh"]
+COPY ./entrypoint.sh ./
+ENTRYPOINT [ "entrypoint.sh"]
